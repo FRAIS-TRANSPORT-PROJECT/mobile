@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:html';
+import 'dart:convert';
 
 import 'package:flutter_ui/client/rest.dart';
 import 'package:flutter_ui/domain/element_entity.dart';
@@ -14,8 +15,9 @@ class ElementService {
 print("test"+response.body);
     switch (response.statusCode) {
       case 200:
-      
-        return List.of(Rest.decodeResponse(response))
+      Map valueMap = json.decode(response.body);
+      print(valueMap.values.first);
+        return List.of(Rest.decodeResponse(valueMap.values.first))
             .map((o) => Demande.fromJson(o))
             .toList();
       default:
