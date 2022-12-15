@@ -12,12 +12,10 @@ class ElementService {
 
   Future<List<Demande>> getElements() async {
     final response = await Rest.requestGet('/demandes/');
-print("test"+response.body);
+//print("test"+response.body);
     switch (response.statusCode) {
       case 200:
-      Map valueMap = json.decode(response.body);
-      print(valueMap.values.first);
-        return List.of(Rest.decodeResponse(valueMap.values.first))
+        return List.of(Rest.decodeResponse(response))
             .map((o) => Demande.fromJson(o))
             .toList();
       default:

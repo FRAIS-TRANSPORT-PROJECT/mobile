@@ -9,17 +9,28 @@ part of 'element_entity.dart';
 Demande _$DemandeFromJson(Map<String, dynamic> json) {
   return Demande(
     json['id'] as String,
-    json['name'] as String,
+    json['motif'] as String,
     json['description'] as String,
-    json['amount'] as int,
-    json['success'] as bool,
+    json['frais'] as int,
+    json['etat'] as String,
+    json['dateDebut'] as String,
+    json['dateFin'] as String,
+    json['villeDepart'] as String,
+    json['villeArrive'] as String,
+    json['justification'] as String,
   );
 }
 
 Map<String, dynamic> _$DemandeToJson(Demande instance) => <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'motif': instance.motif,
       'description': instance.description,
-      'amount': instance.amount,
-      'success': instance.success,
+      'frais': instance.frais,
+      'etat': instance.etat,
+      'dateDebut' : instance.dateDebut,
+      'dateFin' : instance.dateFin,
+      'villeDepart' : instance.villeDepart,
+      'villeArrive'  : instance.villeArrive,
+      'justification' : instance.justification
+
     };

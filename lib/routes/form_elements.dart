@@ -33,20 +33,20 @@ class _FormElements extends State<FormElements> {
   @override
   void initState() {
     super.initState();
-    _controllerName = TextEditingController(text: widget.demande.name);
+    _controllerName = TextEditingController(text: widget.demande.motif);
     _controllerDescription =
         TextEditingController(text: widget.demande.description);
     _controllerAmount =
-        TextEditingController(text: widget.demande.amount.toString());
+        TextEditingController(text: widget.demande.frais.toString());
   }
 
   void _save() async {
     if (!_formKey.currentState.validate()) {
       return;
     }
-    widget.demande.name = _controllerName.value.text;
+    widget.demande.motif = _controllerName.value.text;
     widget.demande.description = _controllerDescription.value.text;
-    widget.demande.amount = int.parse(_controllerAmount.value.text);
+    widget.demande.frais = int.parse(_controllerAmount.value.text);
 
     try {
       if (await elementService.saveElement(widget.demande)) {
@@ -142,15 +142,15 @@ class _FormElements extends State<FormElements> {
           children: <Widget>[
             Text('Successful element'),
             SizedBox(width: 10),
-            Switch(
-              value: widget.demande.success,
+            /*Switch(
+              value: widget.demande.etat,
               onChanged: (value) {
                 setState(() {
-                  widget.demande.success = value;
+                  widget.demande.etat = value;
                 });
               },
               focusNode: _focusSuccess,
-            ),
+            ),*/
           ],
         ),
       ),

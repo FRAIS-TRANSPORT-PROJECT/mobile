@@ -6,22 +6,32 @@ part 'element_entity.g.dart';
 class Demande {
   String _embedded;
   String id;
-  String name;
+  String motif;
   String description;
-  int amount;
-  bool success;
+  int frais;
+  String dateDebut;
+  String dateFin;
+  String villeDepart;
+  String villeArrive;
+  String etat;
+  String justification;
 
   Demande(
     this.id,
-    this.name,
+    this.motif,
     this.description,
-    this.amount,
-    this.success,
+    this.frais,
+    this.dateDebut,
+    this.dateFin,
+    this.etat,
+    this.justification,
+    this.villeArrive,
+    this.villeDepart,
   );
 
   Demande.empty({
-    this.amount = 0,
-    this.success = true,
+    this.frais = 0,
+    this.etat = "true",
   });
 
   factory Demande.fromJson(Map<String, dynamic> json) =>

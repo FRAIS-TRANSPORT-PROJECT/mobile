@@ -48,17 +48,17 @@ class _ListElements extends State<ListElements> {
             }
           },
           child: ListTile(
-            leading: element.success
+          /*  leading: element.etat
                 ? Icon(Icons.label_important)
-                : Icon(Icons.label_outline),
-            title: Text(element.name),
+                : Icon(Icons.label_outline),*/
+            title: Text(element.motif),
             subtitle: Text(element.description),
             trailing: Chip(
               backgroundColor: Colors.transparent,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100),
                   side: BorderSide(color: Colors.grey, width: 1)),
-              label: Text(element.amount.toString()),
+              label: Text(element.frais.toString()),
             ),
           ),
         );
@@ -76,6 +76,7 @@ class _ListElements extends State<ListElements> {
           future: elementService.getElements(),
           builder: (BuildContext context,
               AsyncSnapshot<List<Demande>> snapshot) {
+                print(snapshot);
             if (snapshot.hasData) {
               List data = snapshot.data;
               return data.isNotEmpty
@@ -83,7 +84,7 @@ class _ListElements extends State<ListElements> {
                   : StandardCard('No data', info: true);
             } else if (snapshot.hasError) {
               return StandardCard(
-                  'Cannot get data. Please check your connectivity');
+                  'Still Error');
             }
             return Center(child: CircularProgressIndicator());
           },
