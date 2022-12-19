@@ -15,9 +15,9 @@ class ElementService {
 //print("test"+response.body);
     switch (response.statusCode) {
       case 200:
-        return List.of(Rest.decodeResponse(response))
-            .map((o) => Demande.fromJson(o))
-            .toList();
+      print(response.body);
+      Iterable <Demande> i = jsonDecode(response.body);
+        return i;
       default:
         throw Exception('request failed');
     }

@@ -47,6 +47,13 @@ class _FormElements extends State<FormElements> {
     widget.demande.motif = _controllerName.value.text;
     widget.demande.description = _controllerDescription.value.text;
     widget.demande.frais = int.parse(_controllerAmount.value.text);
+    widget.demande.dateDebut="2022-01-01";
+    widget.demande.dateFin="2022-01-01";
+    widget.demande.etat="En_Cours";
+    widget.demande.justification="";
+    widget.demande.villeArrive="";
+    widget.demande.villeDepart="";
+  
 
     try {
       if (await elementService.saveElement(widget.demande)) {

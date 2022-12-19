@@ -4,7 +4,6 @@ part 'element_entity.g.dart';
 
 @JsonSerializable()
 class Demande {
-  String _embedded;
   String id;
   String motif;
   String description;
