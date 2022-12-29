@@ -76,9 +76,9 @@ class _ListElements extends State<ListElements> {
           future: elementService.getElements(),
           builder: (BuildContext context,
               AsyncSnapshot<List<Demande>> snapshot) {
-                print(snapshot);
+               
             if (snapshot.hasData) {
-              List data = snapshot.data;
+             final List <Demande> data = snapshot.data;
               return data.isNotEmpty
                   ? this._asListView(data)
                   : StandardCard('No data', info: true);

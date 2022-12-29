@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_ui/client/rest.dart';
 import 'package:flutter_ui/domain/element_entity.dart';
 
@@ -16,8 +17,8 @@ class ElementService {
     switch (response.statusCode) {
       case 200:
       print(response.body);
-      Iterable <Demande> i = jsonDecode(response.body);
-        return i;
+      List rejected = json.decode(response.body);
+      return rejected.map((e) => Demande.fromJson(e)).toList();
       default:
         throw Exception('request failed');
     }

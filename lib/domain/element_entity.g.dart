@@ -17,7 +17,7 @@ Demande _$DemandeFromJson(Map<String, dynamic> json) {
     json['dateFin'] as String,
     json['villeDepart'] as String,
     json['villeArrive'] as String,
-    json['justification'] as String,
+    json['justification'] as String
   );
 }
 
